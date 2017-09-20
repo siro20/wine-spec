@@ -117,7 +117,6 @@ make d3d9-nine.dll.fake -C dlls/d3d9-nine
 make programs/ninewinecfg
 
 %install
-#%make_install LDCONFIG=/bin/true
 install -m 755 -d %{buildroot}/%{_libdir}/wine
 install -m 755 -d %{buildroot}/%{_libdir}/wine/fakedlls
 
