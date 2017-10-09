@@ -1,13 +1,14 @@
 # Depends on stable Wine API. No need to rebuild with every minor release
-# Depends on wine's DLLRedirect feature
 # Official nine bugtracker https://github.com/iXit/Mesa-3D/issues
+# Depends on libdl to install redirects to d3d9-nine.dll
+# define WINE_STAGING 1 to use Wine staging's DllRedirects feature instead of symlinks in WINEPREFIX
 
-%define patchlevel 1
+%define patchlevel 3
 
 Name:             wine-nine
 Version:          2.0
 Release:          %{patchlevel}%{?dist}
-Summary:          Wine D3D9 addon: Mesa Gallium Nine wrapper library
+Summary:          Wine D3D9 interface library for Mesa's Gallium Nine statetracker
 License:          LGPLv2
 URL:              https://github.com/iXit/wine
 Source0:          https://github.com/iXit/wine/archive/%{name}-%{version}-%{patchlevel}.zip
@@ -59,9 +60,10 @@ Provides: ninewinecfg.exe.so(x86-64) = %{version}
 Provides: d3d9-nine.dll.so(x86-64) = %{version}
 %endif
 
-%define desc Wine addon that contains the library as well as the tool to configure it. \
+%define desc Wine sub package that contains the D3D9 library as well as the tool to configure it. \
 Installs d3d9-nine.dll that interfaces Mesa's gallium nine statetracker. \
-Installs ninewinecfg to configure nine and provide debugging information.
+Installs ninewinecfg.exe that allows to configure nine and to provide debugging information. \
+Offical bugtracker is at: https://github.com/iXit/Mesa-3D/issues
 
 %description
 %desc
