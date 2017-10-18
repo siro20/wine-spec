@@ -1,3 +1,4 @@
+#
 # spec file for package wine-nine
 #
 # Copyright (c) 2017 siro@das-labor.org
@@ -24,35 +25,38 @@ Release:          %{patchlevel}%{?dist}
 Summary:          Wine D3D9 interface library for Mesa's Gallium Nine statetracker
 License:          LGPL-2.0
 URL:              https://github.com/iXit/wine
-Source0:          https://github.com/iXit/wine/archive/%{name}-%{version}-%{patchlevel}.zip
+Source0:          https://github.com/iXit/wine/archive/%{name}-%{version}-%{patchlevel}.tar.gz
 Group:            Applications/Emulators
 Requires(post):   /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 
 ExclusiveArch:  %{ix86} x86_64
 
+
 BuildRequires:  bison
 BuildRequires:  flex
 BuildRequires:  autoconf
 BuildRequires:  libX11-devel
-BuildRequires:  mesa-libGL-devel
-BuildRequires:  mesa-libd3d-devel
+BuildRequires:  Mesa-devel
+BuildRequires:  Mesa-libGL-devel
+BuildRequires:  Mesa-libEGL-devel
+BuildRequires:  Mesa-libd3d-devel
 BuildRequires:  libXext-devel
 BuildRequires:  libxcb-devel
-BuildRequires:  xorg-x11-proto-devel
-BuildRequires:  mesa-libGL-devel
-BuildRequires:  mesa-libEGL-devel
+BuildRequires:  xorg-x11-devel
 BuildRequires:  libdrm-devel
+BuildRequires:  xorg-x11-proto-devel
+BuildRequires:  dri2proto-devel
+BuildRequires:  dri3proto-devel
+BuildRequires:  libOSMesa-devel
 
-Requires:       wine-common >= %{version}
+
+Requires:       wine >= %{version}
 Enhances:       wine
 
 %ifarch %{ix86}
-Requires:       mesa-dri-drivers(x86-32)
-Requires:       mesa-libd3d(x86-32)
-Requires:       libxcb(x86-32)
-Requires:       libX11(x86-32)
-Requires:       libXext(x86-32)
+Requires:       Mesa-dri-nouveau(x86-32)
+Requires:       Mesa-libd3d(x86-32)
 Provides:       wine-nine(x86-32) = %{version}-%{release}
 Obsoletes:      wine-nine(x86-32) < %{version}-%{release}
 
@@ -61,11 +65,8 @@ Provides: d3d9-nine.dll.so(x86-32) = %{version}
 %endif
 
 %ifarch x86_64
-Requires:       mesa-dri-drivers(x86-64)
-Requires:       mesa-libd3d(x86-64)
-Requires:       libxcb(x86-64)
-Requires:       libX11(x86-64)
-Requires:       libXext(x86-64)
+Requires:       Mesa-dri-nouveau(x86-64)
+Requires:       Mesa-libd3d(x86-64)
 Provides:       wine-nine(x86-64) = %{version}-%{release}
 Obsoletes:      wine-nine(x86-64) < %{version}-%{release}
 
@@ -125,11 +126,11 @@ export PKG_CONFIG_PATH=%{_libdir}/pkgconfig
 %endif
   --disable-tests
 
-make include
-make __builddeps__
-make d3d9-nine.dll.so -C dlls/d3d9-nine
-make d3d9-nine.dll.fake -C dlls/d3d9-nine
-make programs/ninewinecfg
+make include %{?_smp_mflags}
+make __builddeps__ %{?_smp_mflags}
+make d3d9-nine.dll.so -C dlls/d3d9-nine %{?_smp_mflags}
+make d3d9-nine.dll.fake -C dlls/d3d9-nine %{?_smp_mflags}
+make programs/ninewinecfg %{?_smp_mflags}
 
 %install
 install -m 755 -d %{buildroot}/%{_libdir}/wine
@@ -151,11 +152,3 @@ install -m 755 dlls/d3d9-nine/d3d9-nine.dll.fake %{buildroot}/%{_libdir}/wine/fa
 %postun -p /sbin/ldconfig
 
 %changelog
-Patchlevel 3:
-Implement some Adapter*Ex methods.
-
-Patchlevel 2:
-Add support for Wine using symlinks (remove the dependency to wine-staging).
-
-Patchlevel 1:
-Initial release for Wine 2.0.
