@@ -24,7 +24,7 @@ Release:          %{?dist}
 Summary:          Wine D3D9 interface library for Mesa's Gallium Nine statetracker
 License:          LGPL-2.0
 URL:              https://github.com/iXit/wine
-Source0:          https://github.com/iXit/wine/archive/%{name}-%{version}-%{patchlevel}.zip
+Source0:          https://github.com/iXit/wine/archive/%{name}-%{version}-%{patchlevel}.tar.gz
 Group:            Applications/Emulators
 Requires(post):   /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
