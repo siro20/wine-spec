@@ -19,7 +19,7 @@
 %define patchlevel 3
 
 Name:             wine-nine
-Version:          2.0.%{patchlevel}
+Version:          2.0
 Release:          %{?dist}
 Summary:          Wine D3D9 interface library for Mesa's Gallium Nine statetracker
 License:          LGPL-2.0
