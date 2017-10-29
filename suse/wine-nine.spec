@@ -152,3 +152,12 @@ install -m 755 dlls/d3d9-nine/d3d9-nine.dll.fake %{buildroot}/%{_libdir}/wine/fa
 %postun -p /sbin/ldconfig
 
 %changelog
+* Sun Oct 8 2017 Patrick Rudolph <siro@das-labor.org> Patchlevel 3:
+- Implement some Adapter*Ex methods.
+
+* Sun Oct 8 2017 Patrick Rudolph <siro@das-labor.org> Patchlevel 2:
+- Add support for Wine using symlinks (remove the dependency to wine-staging).
+
+* Mon Sep 11 2017 Patrick Rudolph <siro@das-labor.org> Patchlevel 1:
+- Initial release for Wine 2.0.
+
