@@ -43,6 +43,7 @@ BuildRequires:  xorg-x11-proto-devel
 BuildRequires:  mesa-libGL-devel
 BuildRequires:  mesa-libEGL-devel
 BuildRequires:  libdrm-devel
+BuildRequires:  llvm-devel
 
 Requires:       wine-common >= %{version}
 Enhances:       wine
