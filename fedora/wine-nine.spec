@@ -152,11 +152,11 @@ install -m 755 dlls/d3d9-nine/d3d9-nine.dll.fake %{buildroot}/%{_libdir}/wine/fa
 %postun -p /sbin/ldconfig
 
 %changelog
-Patchlevel 3:
-Implement some Adapter*Ex methods.
+* Patchlevel 3:
+- Implement some Adapter*Ex methods.
 
-Patchlevel 2:
-Add support for Wine using symlinks (remove the dependency to wine-staging).
+* Patchlevel 2:
+- Add support for Wine using symlinks (remove the dependency to wine-staging).
 
-Patchlevel 1:
-Initial release for Wine 2.0.
+* Patchlevel 1:
+- Initial release for Wine 2.0.
