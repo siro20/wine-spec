@@ -69,6 +69,7 @@ Requires:       libX11(x86-64)
 Requires:       libXext(x86-64)
 Provides:       wine-nine(x86-64) = %{version}-%{release}
 Obsoletes:      wine-nine(x86-64) < %{version}-%{release}
+Requires:       wine-nine(x86-32) = %{version}-%{release}
 
 Provides: ninewinecfg.exe.so(x86-64) = %{version}
 Provides: d3d9-nine.dll.so(x86-64) = %{version}
