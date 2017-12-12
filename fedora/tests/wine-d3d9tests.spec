@@ -126,7 +126,7 @@ make d3d9_test.exe.so -C dlls/d3d9/tests
 install -m 755 -d %{buildroot}/%{_libdir}/wine
 install -m 755 -d %{buildroot}/%{_libdir}/wine/tests/
 
-install -m 755 dlls/d3d9/d3d9_test.exe.so %{buildroot}/%{_libdir}/wine/tests/d3d9_test.exe.so
+install -m 755 dlls/d3d9/tests/d3d9_test.exe.so %{buildroot}/%{_libdir}/wine/tests/d3d9_test.exe.so
 
 %files
 %dir %{_libdir}/wine
