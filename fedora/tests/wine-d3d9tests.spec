@@ -112,7 +112,7 @@ export PKG_CONFIG_PATH=%{_libdir}/pkgconfig
   --without-xml \
   --without-xslt \
   --without-zlib \
-  --with-d3d9-nine \
+  --without-d3d9-nine \
 %ifarch x86_64
   --enable-win64 \
 %endif
