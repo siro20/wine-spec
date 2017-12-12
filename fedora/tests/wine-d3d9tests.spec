@@ -76,7 +76,7 @@ Provides: d3d9_test.exe.so(x86-64) = %{version}
 %desc
 
 %prep
-%autosetup -n wine-%{name}-%{version}-%{patchlevel}
+%autosetup -n wine-nine-%{version}-%{patchlevel}
 
 %build
 
