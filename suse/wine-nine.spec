@@ -170,22 +170,7 @@ grep SONAME_ config.log
   echo " +^%{_prefix}/bin/wine\$"
   echo " +^%{_prefix}/bin/wine-preloader\$"
   echo " +^%{_prefix}/lib/wine/fakedlls"
-  %if %{pkgconflict}
-    echo " conflicts \"wine-32bit\""
-  %endif
-%if 0%{?suse_version} >= 1330
-  echo " obsoletes \"wine-mp3-32bit\""
-%else
-  echo " recommends \"wine-mp3-32bit\""
-%endif
   grep SONAME_ config.log|grep -v 'so"'|sed -e 's/^.*\(".*"\).*$/	requires \1/;'|sort -u
-%if 0%{?suse_version} >= 1210
-  echo " recommends \"alsa-plugins-pulse-32bit\""
-  echo " recommends \"alsa-plugins-32bit\""
-%endif
-%if 0%{?suse_version} >= 1310
-  echo " requires \"p11-kit-32bit\""
-%endif
   echo "%name-devel"
   echo "  +^%{_prefix}/lib/wine/.*def"
 ) > %SOURCE1
