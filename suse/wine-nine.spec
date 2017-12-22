@@ -99,20 +99,7 @@ BuildRequires:  libdrm-devel-32bit
 BuildRequires:  libOSMesa-devel-32bit
 
 # TODO: remove obsolete packages
-Requires:       dbus-1-devel-32bit
-Requires:       fontconfig-devel-32bit
-Requires:       freeglut-devel-32bit
 Requires:       glibc-devel-32bit
-Requires:       glu-devel-32bit
-Requires:       libXcomposite-devel-32bit
-Requires:       libXcursor-devel-32bit
-Requires:       libXi-devel-32bit
-Requires:       libXinerama-devel-32bit
-Requires:       libXrandr-devel-32bit
-Requires:       libXrender-devel-32bit
-Requires:       libXxf86vm-devel-32bit
-Requires:       liblcms2-devel-32bit
-#Requires:	gcc-32bit
 
 %description 32bit-build-deps
 This virtual package provides the 32bit development build dependencies for use on x86_64.
