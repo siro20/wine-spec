@@ -72,6 +72,8 @@ Obsoletes:      wine-nine(x86-64) < %{version}-%{release}
 
 Provides: ninewinecfg.exe.so(x86-64) = %{version}
 Provides: d3d9-nine.dll.so(x86-64) = %{version}
+
+Requires:       wine-nine-32bit = %{version}-%{release}
 %endif
 
 %define desc Wine sub package that contains the D3D9 library as well as the tool to configure it. \
@@ -81,6 +83,44 @@ Offical bugtracker is at: https://github.com/iXit/Mesa-3D/issues
 
 %description
 %desc
+
+%ifarch x86_64
+%package 32bit-build-deps
+Summary:        Wine build dependencies for 32bit builds on x86_64 systems
+Group:          Development/Libraries/C and C++
+BuildRequires:  libX11-devel-32bit
+BuildRequires:  Mesa-devel-32bit
+BuildRequires:  Mesa-libGL-devel-32bit
+BuildRequires:  Mesa-libEGL-devel-32bit
+BuildRequires:  Mesa-libd3d-devel-32bit
+BuildRequires:  libXext-devel-32bit
+BuildRequires:  libxcb-devel-32bit
+BuildRequires:  xorg-x11-devel-32bit
+BuildRequires:  libdrm-devel-32bit
+BuildRequires:  xorg-x11-proto-devel-32bit
+BuildRequires:  dri2proto-devel-32bit
+BuildRequires:  dri3proto-devel-32bit
+BuildRequires:  libOSMesa-devel-32bit
+
+# TODO: remove obsolete packages
+Requires:       dbus-1-devel-32bit
+Requires:       fontconfig-devel-32bit
+Requires:       freeglut-devel-32bit
+Requires:       glibc-devel-32bit
+Requires:       glu-devel-32bit
+Requires:       libXcomposite-devel-32bit
+Requires:       libXcursor-devel-32bit
+Requires:       libXi-devel-32bit
+Requires:       libXinerama-devel-32bit
+Requires:       libXrandr-devel-32bit
+Requires:       libXrender-devel-32bit
+Requires:       libXxf86vm-devel-32bit
+Requires:       liblcms2-devel-32bit
+#Requires:	gcc-32bit
+
+%description 32bit-build-deps
+This virtual package provides the 32bit development build dependencies for use on x86_64.
+%endif
 
 
 %prep
@@ -147,6 +187,10 @@ install -m 755 dlls/d3d9-nine/d3d9-nine.dll.fake %{buildroot}/%{_libdir}/wine/fa
 %dir %{_libdir}/wine/fakedlls
 %{_libdir}/wine/*.so
 %{_libdir}/wine/fakedlls/*
+
+%ifarch x86_64
+%files 32bit-build-deps
+%endif
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
