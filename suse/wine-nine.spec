@@ -89,17 +89,12 @@ Offical bugtracker is at: https://github.com/iXit/Mesa-3D/issues
 Summary:        Wine build dependencies for 32bit builds on x86_64 systems
 Group:          Development/Libraries/C and C++
 BuildRequires:  libX11-devel-32bit
-BuildRequires:  Mesa-devel-32bit
 BuildRequires:  Mesa-libGL-devel-32bit
 BuildRequires:  Mesa-libEGL-devel-32bit
 BuildRequires:  Mesa-libd3d-devel-32bit
 BuildRequires:  libXext-devel-32bit
 BuildRequires:  libxcb-devel-32bit
-BuildRequires:  xorg-x11-devel-32bit
 BuildRequires:  libdrm-devel-32bit
-BuildRequires:  xorg-x11-proto-devel-32bit
-BuildRequires:  dri2proto-devel-32bit
-BuildRequires:  dri3proto-devel-32bit
 BuildRequires:  libOSMesa-devel-32bit
 
 # TODO: remove obsolete packages
