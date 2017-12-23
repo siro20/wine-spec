@@ -158,7 +158,7 @@ grep SONAME_ config.log
   echo " +^%{_prefix}/bin/wine-preloader\$"
   echo " +^%{_prefix}/lib/wine/fakedlls"
   #grep SONAME_ config.log|grep -v 'so"'|sed -e 's/^.*\(".*"\).*$/	requires \1/;'|sort -u
-  echo "      requires 'Mesa-libd3d-<targettype>'" | sed "s/'/\"/g"
+  echo "      requires \"Mesa-libd3d-<targettype>\""
   echo "%name-devel"
   echo "  +^%{_prefix}/lib/wine/.*def"
 ) > %SOURCE1
