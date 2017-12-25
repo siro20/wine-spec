@@ -1,0 +1,19 @@
+Source: wine-nine
+Section: Emulators
+Maintainer: Patrick Rudolph <siro@das-labor.org>
+Priority: optional
+Build-Depends: debhelper (>= 4.1.16), bison, flex, autoconf, libx11-dev, libgl1-mesa-dev, mesa-libd3d-dev, libxext-dev, libxcb-dri3-dev, libxcb-dri2-0-dev, libxcb-damage0-dev, libxcb-cursor-dev, x11proto-core-dev, x11proto-dri2-dev, x11proto-dri3-dev, libegl1-mesa-dev, libdrm-dev, llvm-dev
+Homepage: https://github.com/iXit/wine
+
+Package: wine-nine
+Architecture: any-i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Homepage: https://github.com/iXit/wine
+Version: 2.0-3
+
+Description: Wine add-on for Mesa's Gallium nine state-tracker
+ Sub package that contains the D3D9 library as well as the tool to configure it.
+ Installs d3d9-nine.dll that interfaces Mesa's gallium nine statetracker.
+ Installs ninewinecfg.exe that allows to configure nine and to provide debugging information.
+ Offical bugtracker is at: https://github.com/iXit/Mesa-3D/issues
+
