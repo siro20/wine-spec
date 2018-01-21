@@ -16,10 +16,10 @@
 # Depends on libdl to install redirects to d3d9-nine.dll
 # define WINE_STAGING 1 to use Wine staging's DllRedirects feature instead of symlinks in WINEPREFIX
 
-%define patchlevel 1
+%define patchlevel 3
 
 Name:             wine-nine
-Version:          3.0
+Version:          2.0
 Release:          %{?dist}
 Summary:          Wine D3D9 interface library for Mesa's Gallium Nine statetracker
 License:          LGPL-2.0
@@ -46,6 +46,7 @@ BuildRequires:  libdrm-devel
 BuildRequires:  llvm-devel
 
 Requires:       wine-common >= %{version}
+Requires:       wine-common < 3.0
 Enhances:       wine
 
 %ifarch %{ix86}
@@ -94,18 +95,13 @@ export PKG_CONFIG_PATH=%{_libdir}/pkgconfig
 ./configure \
   --with-x \
   --without-freetype \
-  --without-fontconfig \
-  --without-curses \
-  --without-cms \
   --without-gstreamer \
   --without-alsa \
-  --without-capi \
   --without-opencl \
   --without-openal \
   --without-netapi  \
   --without-mpg123 \
   --without-ldap \
-  --without-krb5 \
   --without-jpeg \
   --without-gnutls \
   --without-coreaudio \
