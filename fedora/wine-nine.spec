@@ -16,7 +16,7 @@
 # Depends on libdl to install redirects to d3d9-nine.dll
 # define WINE_STAGING 1 to use Wine staging's DllRedirects feature instead of symlinks in WINEPREFIX
 
-%define patchlevel 1
+%define patchlevel 2
 
 Name:             wine-nine
 Version:          3.0
